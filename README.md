@@ -1,7 +1,6 @@
 # quick_start
-
 > quick start for vue progect
-一个快速开启vue项目的工程脚手架，在vue全家桶的基础上，整合常用插件，小工具，封装方法，常用开发依赖，示例ui基于mint-ui
+基于quick-start-spa https://github.com/artiely/quick-start-spa 快速开发的h5应用
 
 ## 开发
 ``` bash
