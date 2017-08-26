@@ -1,0 +1,110 @@
+@import "variable.less";
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.clearfix::after {
+  content: '';
+  clear: both;
+  display: block;
+  height: 0;
+  overflow: hidden;
+}
+
+.pull-right {
+  float: right;
+}
+
+.pull-left {
+  float: left;
+}
+
+.hidden {
+  display: none;
+}
+
+.textover2 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.home {
+  .top-user {
+    padding: 30px 10px 10px 10px;
+    background: #ddd;
+  }
+  .user-icon {
+    height: 60px;
+    width: 60px;
+    overflow: hidden;
+    background: #eee;
+    border-radius: 50%;
+    margin-bottom: 8px;
+    img {
+      object-fit: cover;
+      height: 62px;
+      width: 62px;
+      border-radius: 50%;
+    }
+  }
+  .user-text {
+    color: #fff;
+    font-size: 12px;
+    line-height: 1;
+    .level {
+      padding: 0 8px;
+      font-size: 10px;
+      border: 1px solid #fff;
+      border-radius: 9px;
+    }
+    .mark {
+      padding: 2px 10px;
+      border: 1px solid #fff;
+      border-radius: 12px;
+      &.active {
+        color: @color;
+        border: 1px solid @color;
+      }
+    }
+    b {
+
+    }
+  }
+  .nav-menu {
+    i.iconfont {
+      font-size: 20px;
+    }
+  }
+  .main-head {
+    .icon {
+      font-size: 22px;
+    }
+  }
+}
+
+.cell-group {
+  margin-bottom: 8px;
+  .cell {
+    position: relative;
+    box-sizing: border-box;
+    padding: 10px 8px;
+    background: #fff;
+    font-size: 12px;
+    color: #555;
+    line-height: 1;
+    .icon {
+      padding-right: 5px;
+      color: #999;
+    }
+    .cell-text {
+      //padding-left: 60px;
+    }
+    &.active, &.hover, &.visited {
+      background: #eee;
+    }
+  }
+}
