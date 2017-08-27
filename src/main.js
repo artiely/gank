@@ -12,8 +12,12 @@ Vue.use(api)
 Vue.use(MintUI)
 import VueScroller from 'vue-scroller'
 Vue.use(VueScroller)
-// import {Lazyload} from 'mint-ui'
-// Vue.use(Lazyload)
+
+import Refresh from '@/components/loading/refresh'
+Vue.component('refresh', Refresh)
+
+import Infinite from '@/components/loading/infinite'
+Vue.component('infinite', Infinite)
 
 import * as filters from './utils/filter'
 

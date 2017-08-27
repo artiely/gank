@@ -7,34 +7,7 @@
               ref="my_scroller" class="my-scroller"
               refresh-layer-color="#4b8bf4"
               loading-layer-color="#ec4949">
-      <svg class="spinner" style="stroke: #4b8bf4;" slot="refresh-spinner" viewBox="0 0 64 64">
-        <g stroke-width="7" stroke-linecap="round">
-          <line x1="10" x2="10" y1="27.3836" y2="36.4931">
-            <animate attributeName="y1" dur="750ms" values="16;18;28;18;16;16" repeatCount="indefinite"></animate>
-            <animate attributeName="y2" dur="750ms" values="48;46;36;44;48;48" repeatCount="indefinite"></animate>
-            <animate attributeName="stroke-opacity" dur="750ms" values="1;.4;.5;.8;1;1"
-                     repeatCount="indefinite"></animate>
-          </line>
-          <line x1="24" x2="24" y1="18.6164" y2="45.3836">
-            <animate attributeName="y1" dur="750ms" values="16;16;18;28;18;16" repeatCount="indefinite"></animate>
-            <animate attributeName="y2" dur="750ms" values="48;48;46;36;44;48" repeatCount="indefinite"></animate>
-            <animate attributeName="stroke-opacity" dur="750ms" values="1;1;.4;.5;.8;1"
-                     repeatCount="indefinite"></animate>
-          </line>
-          <line x1="38" x2="38" y1="16.1233" y2="47.8767">
-            <animate attributeName="y1" dur="750ms" values="18;16;16;18;28;18" repeatCount="indefinite"></animate>
-            <animate attributeName="y2" dur="750ms" values="44;48;48;46;36;44" repeatCount="indefinite"></animate>
-            <animate attributeName="stroke-opacity" dur="750ms" values=".8;1;1;.4;.5;.8"
-                     repeatCount="indefinite"></animate>
-          </line>
-          <line x1="52" x2="52" y1="16" y2="48">
-            <animate attributeName="y1" dur="750ms" values="28;18;16;16;18;28" repeatCount="indefinite"></animate>
-            <animate attributeName="y2" dur="750ms" values="36;44;48;48;46;36" repeatCount="indefinite"></animate>
-            <animate attributeName="stroke-opacity" dur="750ms" values=".5;.8;1;1;.4;.5"
-                     repeatCount="indefinite"></animate>
-          </line>
-        </g>
-      </svg>
+      <refresh slot="refresh-spinner"></refresh>
       <div class="mast-cell" v-for="item in dataList">
         <div class="img-box">
           <a :href="item.url" target="_blank">
@@ -51,32 +24,14 @@
               <a :href="item.url" target="_blank">{{item.desc}}</a>
             </div>
             <div class="tool">
-              <span class="item"><i class="icon iconfont icon-praise"></i>123</span>
-              <span class="item"><i class="icon iconfont icon-message"></i>312</span>
-              <span class="item"><i class="icon iconfont icon-share"></i>22</span>
+              <span class="item"><i class="icon iconfont icon-praise"></i>{{item.like}}</span>
+              <span class="item"><i class="icon iconfont icon-message"></i>{{item.comment}}</span>
+              <span class="item"><i class="icon iconfont icon-share"></i>{{item.share}}</span>
             </div>
           </div>
         </div>
       </div>
-      <svg class="spinner" style="fill: #ec4949;" slot="infinite-spinner" viewBox="0 0 64 64">
-        <g>
-          <circle cx="16" cy="32" stroke-width="0" r="3">
-            <animate attributeName="fill-opacity" dur="750ms" values=".5;.6;.8;1;.8;.6;.5;.5"
-                     repeatCount="indefinite"></animate>
-            <animate attributeName="r" dur="750ms" values="3;3;4;5;6;5;4;3" repeatCount="indefinite"></animate>
-          </circle>
-          <circle cx="32" cy="32" stroke-width="0" r="3.09351">
-            <animate attributeName="fill-opacity" dur="750ms" values=".5;.5;.6;.8;1;.8;.6;.5"
-                     repeatCount="indefinite"></animate>
-            <animate attributeName="r" dur="750ms" values="4;3;3;4;5;6;5;4" repeatCount="indefinite"></animate>
-          </circle>
-          <circle cx="48" cy="32" stroke-width="0" r="4.09351">
-            <animate attributeName="fill-opacity" dur="750ms" values=".6;.5;.5;.6;.8;1;.8;.6"
-                     repeatCount="indefinite"></animate>
-            <animate attributeName="r" dur="750ms" values="5;4;3;3;4;5;6;5" repeatCount="indefinite"></animate>
-          </circle>
-        </g>
-      </svg>
+      <infinite slot="infinite-spinner"></infinite>
     </scroller>
   </div>
 </template>
@@ -102,6 +57,12 @@
           if (cb && typeof cb === 'function') {
             cb()
           }
+          this.dataList.map(item => {
+            let like = item.like = Math.ceil(Math.random() * 1000)
+            let comment = item.comment = Math.ceil(Math.random() * 1000)
+            let share = item.share = Math.ceil(Math.random() * 1000)
+            return {like, comment, share}
+          })
         })
       },
       onRefresh (done) {
@@ -115,6 +76,7 @@
     },
     created () {
       this.getData()
+      console.log('怎么会呢？')
     }
   }
 </script>

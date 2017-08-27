@@ -36,6 +36,12 @@ const Detail = resolve => {
   }).then(console.log(33))
 }
 
+const Search = resolve => {
+  require.ensure(['@/views/Search'], () => {
+    resolve(require('@/views/Search'))
+  }).then(console.log(33))
+}
+
 Vue.use(Router)
 
 Router.prototype.back = function () {
@@ -75,6 +81,11 @@ const routes = [
     path: '/detail',
     name: 'Detail',
     component: Detail
+  },
+  {
+    path: '/search',
+    name: 'Search',
+    component: Search
   }
 ]
 

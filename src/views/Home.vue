@@ -4,7 +4,7 @@
       <mt-button slot="left" @click.native="setVisible=true">
         <i class="icon iconfont icon-xuanxiang"></i>
       </mt-button>
-      <mt-button slot="right">
+      <mt-button slot="right" @click.native="search">
         <i class="icon iconfont icon-search"></i>
       </mt-button>
     </mt-header>
@@ -15,7 +15,7 @@
     </transition>
     <mt-tabbar v-model="selected" fixed class="nav-menu">
       <mt-tab-item id="1">
-        <i class="iconfont " :class="selected =='1'?'icon-live_fill':'icon-live'" slot="icon"></i>
+        <i class="iconfont " :class="selected =='1'?'icon-picture_fill':'icon-picture'" slot="icon"></i>
         福利
       </mt-tab-item>
       <mt-tab-item id="2">
@@ -119,7 +119,11 @@
         }
       }
     },
-    methods: {},
+    methods: {
+      search () {
+        this.$router.push('/search')
+      }
+    },
     created () {
       switch (this.$route.path) {
         case '/index':
