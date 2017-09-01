@@ -1,6 +1,8 @@
 <template>
-  <div class="order">
-    <!--<mt-header fixed title="order"></mt-header>-->
+  <div class="category">
+    <mt-header fixed :title="category">
+      <div slot="left" @click="back"><i class="iconfont icon-return"></i></div>
+    </mt-header>
     <scroller style="padding-top: 40px"
               :on-refresh="onRefresh"
               :on-infinite="onInfinite"
@@ -38,7 +40,7 @@
 
 <script>
   export default {
-    name: 'order',
+    name: 'category',
     data () {
       return {
         dataList: [],
@@ -47,6 +49,9 @@
       }
     },
     methods: {
+      back () {
+        this.$router.back()
+      },
       getData (cb) {
         this.$api.ALL({category: this.category, page: this.page}).then(res => {
           if (this.page === 1) {
@@ -75,15 +80,13 @@
       }
     },
     created () {
-      this.getData()
-      console.log('怎么会呢？')
+
     },
-    destroyed () {
-      console.log('order destroyed')
+    activated () {
+      this.category = this.$route.params.name
+      this.page = 1
+      this.getData()
     }
   }
 </script>
-<style lang="less">
-
-</style>
 

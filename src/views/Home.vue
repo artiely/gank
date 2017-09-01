@@ -38,8 +38,8 @@
       position="left"
       style="width: 80%;height: 100%;">
       <scroller style="background:#fafafa;">
-
-        <div class="top-user">
+        <div class="top-user" >
+          <img :src="require('@/assets/img/icon.jpg')" alt="" class="bgimg">
           <div class="user-icon">
             <img :src="require('@/assets/img/icon.jpg')" alt="">
           </div>

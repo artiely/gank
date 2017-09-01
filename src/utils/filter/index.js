@@ -32,7 +32,7 @@ export function host (url) {
 }
 
 export function timeAgo (time) {
-  let times = moment(time).format('X')
+  let times = moment(time).format('x') / 1000
   const between = Date.now() / 1000 - Number(times)
   if (between < 3600) {
     return pluralize(~~(between / 60), '分钟前')
@@ -45,4 +45,10 @@ export function timeAgo (time) {
 
 function pluralize (time, label) {
   return time + label
+}
+
+export function timeFormat (time, format) {
+  if (!time) return ''
+  format = format != null ? format : 'YYYY-MM-DD HH:mm:ss'
+  return moment(time).format(format)
 }

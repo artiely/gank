@@ -2,7 +2,7 @@
   <div class="find">
     <!--<mt-header fixed title="find"></mt-header>-->
     <scroller style="padding-top: 40px">
-      <div class="find-cell"  v-for="item in category">
+      <div class="find-cell" v-for="item in category" @click="toCategory(item.name)">
         <div class="item">
           <div class="icon-box">
             <i class="icon iconfont icon-anzhuo1" :class="item.icon"></i>
@@ -49,12 +49,13 @@
           {
             name: '休息视频',
             icon: 'icon-live_fill'
-          },
-          {
-            name: '福利',
-            icon: 'icon-picture_fill'
           }
         ]
+      }
+    },
+    methods: {
+      toCategory (name) {
+        this.$router.push({name: 'Category', params: {name: name}})
       }
     }
   }
@@ -82,7 +83,7 @@
           color: #ff4949
         }
       }
-      .more{
+      .more {
         width: 40px;
         height: 100%;
         color: #ddd;

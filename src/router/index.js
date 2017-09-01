@@ -42,6 +42,12 @@ const Search = resolve => {
   }).then(console.log(33))
 }
 
+const Category = resolve => {
+  require.ensure(['@/views/Category'], () => {
+    resolve(require('@/views/Category'))
+  }).then(console.log(33))
+}
+
 Vue.use(Router)
 
 Router.prototype.back = function () {
@@ -86,6 +92,11 @@ const routes = [
     path: '/search',
     name: 'Search',
     component: Search
+  },
+  {
+    path: '/category',
+    name: 'Category',
+    component: Category
   }
 ]
 

@@ -15,9 +15,17 @@ const ALL = params => {
     params: ''
   })
 }
+
+const TAN_JIE = params => {
+  return fetch({
+    url: '/tanjie',
+    method: 'get'
+  })
+}
 const apiList = {
   WEAL,
-  ALL
+  ALL,
+  TAN_JIE
 }
 
 export default apiList

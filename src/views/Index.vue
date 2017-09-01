@@ -1,28 +1,30 @@
 <template>
   <div class="index">
     <!--<mt-header fixed title="首页"></mt-header>-->
-    <scroller style="padding-top: 40px"
-              :on-refresh="onRefresh"
-              :on-infinite="onInfinite"
-              ref="my_scroller" class="my-scroller"
-              refresh-layer-color="#4b8bf4"
-              loading-layer-color="#ec4949">
-      <refresh slot="refresh-spinner"></refresh>
-      <ul>
-        <li v-for="(item,i) in dateList" :key="i" class="imgbox">
-          <img v-lazy="item.url">
-          <div class="clearfix desc">
+    <keep-alive>
+      <scroller style="padding-top: 40px"
+                :on-refresh="onRefresh"
+                :on-infinite="onInfinite"
+                ref="my_scroller" class="my-scroller"
+                refresh-layer-color="#4b8bf4"
+                loading-layer-color="#ec4949">
+        <!--<refresh slot="refresh-spinner"></refresh>-->
+        <ul>
+          <li v-for="(item,i) in dateList" :key="i" class="imgbox">
+            <img v-lazy="item.url">
+            <div class="clearfix desc">
             <span class="pull-right">
               <span class="like-num"><span v-if="item.like" class="add-num">+1</span>{{item.likeNum}}</span>
               <i class="icon iconfont icon-like_fill heart" v-if="item.like" @click="like(item,i)"></i>
             <i class="icon iconfont icon-like" v-if="!item.like" @click="like(item,i)"></i>
             </span>
-            <span class="time-ago pull-left">{{item.publishedAt | timeAgo}}</span>
-          </div>
-        </li>
-      </ul>
-      <infinite slot="infinite-spinner"></infinite>
-    </scroller>
+              <span class="time-ago pull-left">{{item.createdAt | timeAgo}}</span>
+            </div>
+          </li>
+        </ul>
+        <!--<infinite slot="infinite-spinner"></infinite>-->
+      </scroller>
+    </keep-alive>
   </div>
 </template>
 <script>
@@ -79,11 +81,9 @@
     },
     created () {
       this.getData()
-      console.log('怎么会呢？----')
     },
-    activated () {
-      console.log('我是会走的')
-      this.$refs.my_scroller.finishInfinite(true)
+    destroyed () {
+      console.log('index destroyed')
     }
   }
 </script>
