@@ -2,28 +2,28 @@
 .slide-left-enter,
 .slide-right-leave-active {
   opacity: 0;
-  -webkit-transform: translate(100%, 0);
-  transform: translate(100%, 0);
+  -webkit-transform: translate3d(100%, 0, 0);
+  transform: translate3d(100%, 0, 0);
 }
 
 .slide-left-leave-active,
 .slide-right-enter {
   opacity: 0;
-  -webkit-transform: translate(-100%, 0);
-  transform: translate(-100%, 0);
+  -webkit-transform: translate3d(-100%, 0, 0);
+  transform: translate3d(-100%, 0, 0);
 }
 
 /*上下渐显*/
 .slide-up-enter,
 .slide-down-leave-active {
   opacity: 0;
-  -webkit-transform: translate(0, 50%);
-  transform: translate(0, 50%);
+  -webkit-transform: translate3d(0, 50%, 0);
+  transform: translate3d(0, 50%, 0);
 }
 
 .slide-up-leave-active,
 .slide-down-enter {
   opacity: 0;
-  -webkit-transform: translate(0, -50%);
-  transform: translate(0, -50%);
+  -webkit-transform: translate3d(0, -50%, 0);
+  transform: translate3d(0, -50%, 0);
 }

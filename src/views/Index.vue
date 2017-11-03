@@ -8,7 +8,7 @@
                 ref="my_scroller" class="my-scroller"
                 refresh-layer-color="#4b8bf4"
                 loading-layer-color="#ec4949">
-        <!--<refresh slot="refresh-spinner"></refresh>-->
+        <refresh slot="refresh-spinner"></refresh>
         <ul>
           <li v-for="(item,i) in dateList" :key="i" class="imgbox">
             <img v-lazy="item.url">
@@ -22,7 +22,7 @@
             </div>
           </li>
         </ul>
-        <!--<infinite slot="infinite-spinner"></infinite>-->
+        <infinite slot="infinite-spinner"></infinite>
       </scroller>
     </keep-alive>
   </div>

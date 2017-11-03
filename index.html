@@ -18,7 +18,7 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <title>quick_start</title>
-  <link rel="stylesheet" href="//at.alicdn.com/t/font_313716_7vw7wt4adigdgqfr.css">
+  <!--<link rel="stylesheet" href="//at.alicdn.com/t/font_313716_7vw7wt4adigdgqfr.css">-->
   <!--<script src="//at.alicdn.com/t/font_385335_m2uqlabv9kjoflxr.js"></script>-->
   <style>
     html, body {
@@ -110,12 +110,13 @@
 </head>
 <body>
 <div class="loader" id="loader"></div>
-<div id="app"></div>
+<div id="app" style="display: none"></div>
 <!-- built files will be auto injected -->
 </body>
 <script>
   window.onload = function () {
     document.getElementById('loader').style.display = 'none'
+    document.getElementById('app').style.display = 'block'
   }
 </script>
 </html>

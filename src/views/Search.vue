@@ -6,7 +6,7 @@
         <i class="icon iconfont icon-return"></i>
       </div>
       <div class="search-input">
-        <input type="search" class="input" placeholder="搜不到" v-model="keywords">
+        <input type="search" class="input" placeholder="搜不到" v-model="keywords" style="height: 40px;">
         <div class="clear" v-if="keywords.length>0" @click="keywords=''">
           <i class="icon iconfont icon-close"></i>
         </div>

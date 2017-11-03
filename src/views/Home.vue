@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <mt-header fixed title="传国玉玺" class="main-head">
+    <mt-header fixed title="扑街" class="main-head">
       <mt-button slot="left" @click.native="setVisible=true">
         <i class="icon iconfont icon-xuanxiang"></i>
       </mt-button>
