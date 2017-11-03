@@ -2,6 +2,13 @@
 > quick start for vue progect
 基于quick-start-spa https://github.com/artiely/quick-start-spa 快速开发的h5应用
 
+demo
+
+![](111.png)
+
+截图
+
+![](poorguy.gif)
 ## 开发
 ``` bash
 # 克隆项目
