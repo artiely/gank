@@ -16,7 +16,7 @@ git clone
 
 # 安装依赖
 npm install
-# 建议不要用cnpm  会是不是丢包 可以通过指定淘宝镜像解决npm速度慢的问题
+# 建议不要用cnpm  会时不时丢包 可以通过指定淘宝镜像解决npm速度慢的问题
 npm install --registry=https://registry.npm.taobao.org
 
 # 本地开发 开启服务
